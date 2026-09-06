@@ -6,7 +6,7 @@ public class Main {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final int MIN_SPEED = 0;
     private static final int MAX_SPEED = 250;
-    private static final int COUNT_CAR = 4;
+    private static final int CAR_COUNT = 3;
 
     public static void main(String[] args) {
         addCar();
@@ -15,9 +15,10 @@ public class Main {
     }
 
     private static void addCar() {
-        for (int i = 1; i < COUNT_CAR; i++) {
-            String carName = getInputCarName(i);
-            int carSpeed = getInputCarSpeed(i);
+        for (int i = 1; i < CAR_COUNT; i++) {
+            int carNumber = i + 1;
+            String carName = getInputCarName(carNumber );
+            int carSpeed = getInputCarSpeed(carNumber );
             RACE.calculateRaceLeader(new Car(carName, carSpeed));
         }
     }
@@ -48,6 +49,6 @@ public class Main {
 
 
     private static boolean isValidSpeed(int carSpeed) {
-        return carSpeed > MIN_SPEED && carSpeed <= MAX_SPEED;
+        return carSpeed >= MIN_SPEED && carSpeed <= MAX_SPEED;
     }
 }
